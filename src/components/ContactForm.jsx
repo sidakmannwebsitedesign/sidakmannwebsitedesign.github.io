@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID;
-const FORM_ENDPOINT = FORM_ID ? `https://formspree.io/f/${FORM_ID}` : null;
+const FORM_ENDPOINT = 'https://formspree.io/f/meebpvbd';
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle');
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    if (!FORM_ENDPOINT) return;
 
     setStatus('submitting');
 
@@ -59,13 +56,6 @@ export default function ContactForm() {
           and I'll get back to you at sidaksmann@gmail.com.
         </motion.p>
 
-        {!FORM_ENDPOINT && (
-          <p className="contact-form__notice">
-            Add your Formspree form ID to <code>.env</code> as{' '}
-            <code>VITE_FORMSPREE_FORM_ID</code> (see <code>.env.example</code>).
-          </p>
-        )}
-
         {status === 'success' ? (
           <motion.div
             className="contact-form__success"
@@ -73,7 +63,7 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p>Thanks — your message is on its way. I'll reply soon.</p>
+            <p>Thanks. Your message is on its way. I'll reply soon.</p>
             <button
               type="button"
               className="btn btn--ghost"
@@ -85,7 +75,7 @@ export default function ContactForm() {
         ) : (
           <motion.form
             className="contact-form"
-            action={FORM_ENDPOINT ?? undefined}
+            action={FORM_ENDPOINT}
             method="POST"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
@@ -122,7 +112,7 @@ export default function ContactForm() {
             <button
               type="submit"
               className="btn btn--primary btn--large btn--full"
-              disabled={!FORM_ENDPOINT || status === 'submitting'}
+              disabled={status === 'submitting'}
             >
               {status === 'submitting' ? 'Sending…' : 'Send message'}
             </button>
