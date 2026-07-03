@@ -53,7 +53,7 @@ export default function ContactForm() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           Fifteen-minute pitch call, flat $300, live in about a week. Send a note
-          and I'll get back to you at sidaksmann@gmail.com.
+          and I'll get back to you at sidak@sidakswebsites.com.
         </motion.p>
 
         {status === 'success' ? (
@@ -105,7 +105,7 @@ export default function ContactForm() {
 
             {status === 'error' && (
               <p className="contact-form__error">
-                Something went wrong. Try again, or email sidaksmann@gmail.com directly.
+                Something went wrong. Try again, or email sidakswebsites.com directly.
               </p>
             )}
 
