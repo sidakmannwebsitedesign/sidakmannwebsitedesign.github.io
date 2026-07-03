@@ -160,6 +160,40 @@
   font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 100px;
 }
 
+.mock__row--tiny { height: 6px; width: 40%; }
+.mock__row--short { width: 30%; }
+.mock__row--broken { width: 80%; background: #E8B8AC; }
+.mock__row--overflow {
+  width: 118%;
+  border: 1px dashed var(--coral-deep);
+  background: transparent;
+}
+.mock__box--missing {
+  background: repeating-linear-gradient(45deg, #ECEAE2, #ECEAE2 6px, #E0DDD3 6px, #E0DDD3 12px);
+}
+
+.mock__navbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.mock__navbrand {
+  width: 22px; height: 22px; border-radius: 6px;
+  background: var(--coral);
+}
+.mock__navlinks {
+  display: flex; gap: 10px; flex: 1;
+}
+.mock__navdot {
+  width: 26px; height: 6px; border-radius: 100px;
+  background: #E0DDD3;
+}
+.mock__navcta {
+  width: 54px; height: 18px; border-radius: 100px;
+  background: var(--ink);
+}
+
 .mock--fixed .mock__hero { display: flex; gap: 18px; align-items: center; margin-bottom: 20px; }
 .mock__hero-text { flex: 1; }
 .mock__pill { width: 60px; height: 8px; border-radius: 100px; background: var(--coral); margin-bottom: 12px; }
@@ -174,6 +208,22 @@
   flex: 1; height: 56px; border-radius: 10px;
   background: linear-gradient(160deg, #FFF4F0, #FBEFE2);
   border: 1px solid var(--line);
+}
+
+.mock__testimonial {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 18px;
+}
+.mock__avatar {
+  width: 28px; height: 28px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, var(--gold), var(--coral));
+}
+.mock__testimonial-lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+.mock__footer {
+  height: 10px; width: 100%; border-radius: 100px;
+  background: #EFEDE6;
+  margin-top: 18px;
 }
 
 @media (max-width: 900px) {
@@ -274,6 +324,12 @@
 .pricing__list { list-style: none; padding: 0; margin: 0 0 30px; display: flex; flex-direction: column; gap: 13px; }
 .pricing__list li { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.5; }
 .pricing__check { color: var(--saguaro); font-weight: 700; flex: none; }
+.pricing__note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: -6px 0 20px;
+}
 @media (max-width: 900px) { .pricing__inner { grid-template-columns: 1fr; gap: 48px; } }
 
 /* ---------- About ---------- */
