@@ -6,10 +6,10 @@ export default function Hero() {
   const sectionRef = useRef(null);
   const { scrollY } = useScroll();
 
-  const brokenOpacity = useTransform(scrollY, [0, 150, 320], [1, 1, 0]);
-  const fixedOpacity = useTransform(scrollY, [150, 320, 550], [0, 1, 1]);
-  const tilt = useTransform(scrollY, [0, 320], [6, 0]);
-  const lift = useTransform(scrollY, [0, 320], [0, -18]);
+  const brokenOpacity = useTransform(scrollY, [0, 60, 160], [1, 1, 0]);
+  const fixedOpacity = useTransform(scrollY, [60, 160, 280], [0, 1, 1]);
+  const tilt = useTransform(scrollY, [0, 160], [6, 0]);
+  const lift = useTransform(scrollY, [0, 160], [0, -18]);
 
   return (
     <section id="top" className="hero" ref={sectionRef}>
@@ -46,7 +46,7 @@ export default function Hero() {
 
         <motion.div
           className="hero__visual"
-          style={{ rotate: tilt, y: lift }}
+          style={{ rotate: tilt, y: lift, marginTop: 32 }}
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
