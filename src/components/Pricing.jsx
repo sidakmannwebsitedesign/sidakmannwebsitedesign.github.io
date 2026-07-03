@@ -55,7 +55,7 @@ export default function Pricing() {
             ))}
           </ul>
           <p className="pricing__note">
-            + your domain, billed monthly or yearly at whatever the registrar charges — no markup.
+            
           </p>
           <Link to="/contact" className="btn btn--primary btn--full">Start with $150</Link>
         </motion.div>
