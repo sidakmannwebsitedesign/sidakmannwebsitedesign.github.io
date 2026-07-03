@@ -4,15 +4,12 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Hero() {
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const brokenOpacity = useTransform(scrollYProgress, [0, 0.35, 0.55], [1, 1, 0]);
-  const fixedOpacity = useTransform(scrollYProgress, [0.35, 0.55, 1], [0, 1, 1]);
-  const tilt = useTransform(scrollYProgress, [0, 1], [6, 0]);
-  const lift = useTransform(scrollYProgress, [0, 1], [0, -18]);
+  const brokenOpacity = useTransform(scrollY, [0, 150, 320], [1, 1, 0]);
+  const fixedOpacity = useTransform(scrollY, [150, 320, 550], [0, 1, 1]);
+  const tilt = useTransform(scrollY, [0, 320], [6, 0]);
+  const lift = useTransform(scrollY, [0, 320], [0, -18]);
 
   return (
     <section id="top" className="hero" ref={sectionRef}>
@@ -63,17 +60,27 @@ export default function Hero() {
             </div>
             <div className="browser__screen">
               <motion.div className="mock mock--broken" style={{ opacity: brokenOpacity }}>
-                <div className="mock__row mock__row--title" />
+                <div className="mock__row mock__row--title mock__row--broken" />
                 <div className="mock__row mock__row--wide" />
-                <div className="mock__row" />
+                <div className="mock__row mock__row--tiny" />
+                <div className="mock__row mock__row--tiny mock__row--overflow" />
                 <div className="mock__grid">
                   <div className="mock__box" />
-                  <div className="mock__box" />
+                  <div className="mock__box mock__box--missing" />
                 </div>
                 <div className="mock__badge">404 on mobile</div>
               </motion.div>
 
               <motion.div className="mock mock--fixed" style={{ opacity: fixedOpacity }}>
+                <div className="mock__navbar">
+                  <span className="mock__navbrand" />
+                  <div className="mock__navlinks">
+                    <span className="mock__navdot" />
+                    <span className="mock__navdot" />
+                    <span className="mock__navdot" />
+                  </div>
+                  <span className="mock__navcta" />
+                </div>
                 <div className="mock__hero">
                   <div className="mock__hero-text">
                     <div className="mock__pill" />
@@ -88,10 +95,18 @@ export default function Hero() {
                   <div className="mock__card" />
                   <div className="mock__card" />
                 </div>
+                <div className="mock__testimonial">
+                  <span className="mock__avatar" />
+                  <div className="mock__testimonial-lines">
+                    <div className="mock__row mock__row--tiny" />
+                    <div className="mock__row mock__row--tiny mock__row--short" />
+                  </div>
+                </div>
+                <div className="mock__footer" />
               </motion.div>
             </div>
           </div>
-          <span className="hero__caption">scroll. this is the whole job, actually</span>
+          <span className="hero__caption"> before and after </span>
         </motion.div>
       </div>
     </section>
