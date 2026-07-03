@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import pfp from '../assets/pfp.jpg';
 
 export default function About() {
   return (
@@ -12,10 +13,9 @@ export default function About() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="about__badge">
-            <span>SM</span>
+            <img src={pfp} alt="Sidak Mann" className="about__badge-img" />
           </div>
         </motion.div>
-
         <motion.div
           className="about__copy"
           initial={{ opacity: 0, y: 24 }}
