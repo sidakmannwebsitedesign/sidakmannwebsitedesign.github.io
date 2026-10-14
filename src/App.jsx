@@ -6,6 +6,7 @@ import HowItWorksPage from './pages/HowItWorksPage';
 import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import StartPage from './pages/StartPage';
 import './App.styles.css';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="pricing" element={<PricingPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="start" element={<StartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

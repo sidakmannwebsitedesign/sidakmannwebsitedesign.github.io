@@ -65,7 +65,7 @@ export default function Pricing() {
           <p className="pricing__note">
             
           </p>
-          <Link to="/contact" className="btn btn--primary btn--full">Start with $400</Link>
+          <Link to="/start" className="btn btn--primary btn--full">Start with $400</Link>
         </motion.div>
       </div>
     </section>

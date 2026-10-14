@@ -34,7 +34,7 @@ export default function Nav() {
             <Link key={l.to} to={l.to}>{l.label}</Link>
           ))}
         </nav>
-        <Link to="/contact" className="nav__cta">Get your site</Link>
+        <Link to="/start" className="nav__cta">Get your site</Link>
       </div>
     </motion.header>
   );

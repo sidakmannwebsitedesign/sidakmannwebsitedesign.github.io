@@ -1,12 +1,29 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 export default function Hero() {
   const { scrollY } = useScroll();
-
-  const oldOpacity = useTransform(scrollY, [0, 60, 160], [1, 1, 0]);
-  const newOpacity = useTransform(scrollY, [60, 160, 280], [0, 1, 1]);
   const lift = useTransform(scrollY, [0, 160], [0, -18]);
+
+  // The sample site flips between before and after on a timer, but only while
+  // it's on screen, so phones (where it sits below the fold) see both states.
+  const visualRef = useRef(null);
+  const inView = useInView(visualRef, { amount: 0.5 });
+  const reduceMotion = useReducedMotion();
+  const [after, setAfter] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
+
+  useEffect(() => {
+    if (!autoplay || !inView || reduceMotion) return;
+    const timer = setTimeout(() => setAfter((a) => !a), after ? 5000 : 3200);
+    return () => clearTimeout(timer);
+  }, [after, autoplay, inView, reduceMotion]);
+
+  function show(next) {
+    setAutoplay(false);
+    setAfter(next);
+  }
 
   return (
     <section id="top" className="hero">
@@ -39,6 +56,7 @@ export default function Hero() {
 
         <motion.div
           className="hero__visual"
+          ref={visualRef}
           style={{ y: lift }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,7 +71,7 @@ export default function Hero() {
             </div>
             {/* decorative sample site; the caption below describes it */}
             <div className="browser__screen" aria-hidden="true">
-              <motion.div className="site old" style={{ opacity: oldOpacity }}>
+              <div className="site old">
                 <div className="old__title">Welcome to Desert Bloom Landscaping!!!</div>
                 <div className="old__links">
                   <u>Home</u> | <u>About Us</u> | <u>Services</u> | <u>Photo Gallery</u> | <u>Contact</u> | <u>Guestbook</u>
@@ -71,9 +89,15 @@ export default function Hero() {
                   Last updated 3/14/2011 &middot; You are visitor #004127 &middot; Best viewed in Internet Explorer 8
                 </div>
                 <span className="old__badge">Not mobile-friendly</span>
-              </motion.div>
+              </div>
 
-              <motion.div className="site new" style={{ opacity: newOpacity }}>
+              {/* the rebuild wipes down over the old site */}
+              <motion.div
+                className="site new"
+                initial={false}
+                animate={{ clipPath: after ? 'inset(0% 0% 0% 0%)' : 'inset(0% 0% 100% 0%)' }}
+                transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.65, 0, 0.35, 1] }}
+              >
                 <div className="new__nav">
                   <span className="new__logo"><DesertMark /> Desert Bloom</span>
                   <span className="new__links">
@@ -105,7 +129,13 @@ export default function Hero() {
               </motion.div>
             </div>
           </div>
-          <span className="hero__caption">Sample redesign: before and after</span>
+          <div className="hero__compare">
+            <span className="hero__caption">Sample redesign</span>
+            <div className="toggle" role="group" aria-label="Show the sample site">
+              <button type="button" aria-pressed={!after} onClick={() => show(false)}>Before</button>
+              <button type="button" aria-pressed={after} onClick={() => show(true)}>After</button>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
