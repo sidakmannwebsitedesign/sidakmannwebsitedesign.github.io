@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const INCLUDED = [
+  'A free demo first, with unlimited tweaks, nitpicks, and redesigns before you pay',
   'Custom design, built for your business, not a template picker',
   'Mobile-first: most of your customers will meet you there first',
   'Domain registered and pointed correctly (billed to you at cost, monthly or annually — depends on the domain)',
   'Hosting set up and paid for by me, permanently — never a bill from me for that',
-  'Live in about a week from the deposit',
   'You own everything. I just run it so you don\u2019t have to.',
 ];
 
@@ -35,7 +35,8 @@ export default function Pricing() {
           </h2>
           <p className="pricing__lead">
             Most agencies quote you a build fee, then a monthly fee, then a "maintenance"
-            fee you find out about later. This is one build number, paid in two halves.
+            fee you find out about later. This is one build number, paid once, and only after you've seen a demo of
+            your site and signed off on it.
             Hosting is on me for as long as I run your site. The only thing that renews
             is your domain, billed at cost.
           </p>
@@ -53,7 +54,7 @@ export default function Pricing() {
             <span className="pricing__currency">$</span>
             <span className="pricing__amount">799</span>
           </div>
-          <p className="pricing__split">$400 to start &nbsp;•&nbsp; $399 at launch</p>
+          <p className="pricing__split">One payment, only after you approve your demo</p>
           <ul className="pricing__list">
             {INCLUDED.map((item) => (
               <li key={item}>
@@ -62,10 +63,10 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
+          <Link to="/contact" className="btn btn--primary btn--full">Get your free demo</Link>
           <p className="pricing__note">
-            
+            Already approved your demo? <Link to="/start">Pay here</Link>.
           </p>
-          <Link to="/start" className="btn btn--primary btn--full">Start with $400</Link>
         </motion.div>
       </div>
     </section>

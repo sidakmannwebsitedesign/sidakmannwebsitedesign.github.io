@@ -40,16 +40,17 @@ export default function Hero() {
           </h1>
           <p className="hero__sub">
             I build and host real websites for local businesses running on nothing,
-            or something slow, dated, and broken on a phone. Flat $799. Live in about
-            a week. You never touch a dashboard again.
+            or something slow, dated, and broken on a phone. You see a free demo first and
+            tweak it as much as you want, then pay one flat $799. You never touch a
+            dashboard again.
           </p>
           <div className="hero__actions">
-            <Link to="/contact" className="btn btn--primary">Get a quote</Link>
+            <Link to="/contact" className="btn btn--primary">Get a free demo</Link>
             <Link to="/how-it-works" className="btn btn--ghost">See how it works</Link>
           </div>
           <div className="hero__proof">
-            <ProofItem k="$799" v="flat, no surprises" />
-            <ProofItem k="~7 days" v="pitch to live" />
+            <ProofItem k="$799" v="one payment, after you approve" />
+            <ProofItem k="Free" v="demo + unlimited tweaks" />
             <ProofItem k="0" v="dashboards you manage" />
           </div>
         </motion.div>

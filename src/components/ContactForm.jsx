@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { EMAIL, PHONE, PHONE_HREF } from '../contact';
 
 const FORM_ENDPOINT = 'https://formspree.io/f/meebpvbd';
 
@@ -50,9 +51,13 @@ export default function ContactForm() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Fifteen-minute pitch call, flat $799, live in about a week. Send a note
-          and I'll get back to you at sidak@sidakswebsites.com.
+          Tell me about your business and I'll build you a free demo. Ask for as many
+          tweaks and redesigns as you want, then pay one flat $799 when you love it.
         </motion.p>
+        <p className="contact-direct">
+          Prefer to talk? Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or call{' '}
+          <a href={PHONE_HREF}>{PHONE}</a>.
+        </p>
 
         {status === 'success' ? (
           <motion.div
@@ -103,7 +108,7 @@ export default function ContactForm() {
 
             {status === 'error' && (
               <p className="contact-form__error">
-                Something went wrong. Try again, or email sidak@sidakswebsites.com directly.
+                Something went wrong. Try again, or email {EMAIL} directly.
               </p>
             )}
 

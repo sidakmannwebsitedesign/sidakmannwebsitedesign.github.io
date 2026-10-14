@@ -34,8 +34,8 @@ export default function About() {
           </p>
           <p>
             I started this because too many good local businesses were being represented
-            online by something that didn't do them justice. One flat $799 fee covers the
-            whole build, and handling the domain and hosting myself means you get to run
+            online by something that didn't do them justice. One flat $799, paid only after
+            you've seen and approved a demo, covers the whole build, and handling the domain and hosting myself means you get to run
             your business instead of a website.
           </p>
         </motion.div>

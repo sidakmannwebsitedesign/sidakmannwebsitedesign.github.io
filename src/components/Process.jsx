@@ -4,22 +4,22 @@ const STEPS = [
   {
     n: '01',
     title: 'Quick pitch',
-    detail: 'Fifteen minutes, no pressure. I look at what you have, what your customers need to find, and quote the flat $799.',
+    detail: 'Fifteen minutes, no pressure. I look at what you have and what your customers need to find. The price is always a flat $799.',
   },
   {
     n: '02',
-    title: 'Half down',
-    detail: 'Half up front to start, half when the site goes live. Domain and hosting get set up under your name from day one.',
+    title: 'Free demo',
+    detail: 'I build a working demo of your site. You see the real thing before you pay anything.',
   },
   {
     n: '03',
-    title: 'I build it',
-    detail: 'Real design, real copy, mobile-first. You see drafts, you give notes, I handle everything technical behind it.',
+    title: 'Tweak it until you love it',
+    detail: 'Nitpicks, rewrites, full redesigns. Ask for as many rounds as you want. I handle everything technical behind it.',
   },
   {
     n: '04',
-    title: 'Live in about a week',
-    detail: 'Domain connected, hosting live, everything working end to end. You get a link, not a login.',
+    title: 'Pay once, go live',
+    detail: 'Happy with it? Pay $799 once. I connect your domain and hosting and everything works end to end. You get a link, not a login.',
   },
 ];
 
