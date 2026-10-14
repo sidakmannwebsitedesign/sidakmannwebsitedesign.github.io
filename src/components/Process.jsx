@@ -4,7 +4,7 @@ const STEPS = [
   {
     n: '01',
     title: 'Quick pitch',
-    detail: 'Fifteen minutes, no pressure. I look at what you have, what your customers need to find, and quote the flat $300.',
+    detail: 'Fifteen minutes, no pressure. I look at what you have, what your customers need to find, and quote the flat $799.',
   },
   {
     n: '02',

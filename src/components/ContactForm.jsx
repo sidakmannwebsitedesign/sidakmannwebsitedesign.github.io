@@ -35,8 +35,6 @@ export default function ContactForm() {
 
   return (
     <section className="cta" id="contact">
-      <div className="cta__blob cta__blob--a" />
-      <div className="cta__blob cta__blob--b" />
       <div className="wrap cta__inner">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
@@ -52,7 +50,7 @@ export default function ContactForm() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Fifteen-minute pitch call, flat $300, live in about a week. Send a note
+          Fifteen-minute pitch call, flat $799, live in about a week. Send a note
           and I'll get back to you at sidak@sidakswebsites.com.
         </motion.p>
 
@@ -105,7 +103,7 @@ export default function ContactForm() {
 
             {status === 'error' && (
               <p className="contact-form__error">
-                Something went wrong. Try again, or email sidakswebsites.com directly.
+                Something went wrong. Try again, or email sidak@sidakswebsites.com directly.
               </p>
             )}
 

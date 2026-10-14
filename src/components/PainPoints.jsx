@@ -4,22 +4,18 @@ const ITEMS = [
   {
     label: 'No site at all',
     detail: 'Google search turns up a Yelp listing, a Facebook page from 2019, and nothing you actually control.',
-    color: 'var(--coral)',
   },
   {
     label: 'A site that’s slow',
     detail: 'Ten seconds to load a menu or a phone number is ten seconds a customer spends leaving instead.',
-    color: 'var(--sky)',
   },
   {
     label: 'Outdated and untrusted',
-    detail: 'A site that looks like 2011 tells people your business hasn’t kept up either , fair or not.',
-    color: 'var(--gold)',
+    detail: 'A site that looks like 2011 tells people your business hasn’t kept up either, fair or not.',
   },
   {
     label: 'Broken on mobile',
     detail: 'Most of your customers are on a phone. If the site fights them there, they don’t fight back.',
-    color: 'var(--violet)',
   },
 ];
 
@@ -50,7 +46,7 @@ export default function PainPoints() {
           variants={fadeUp}
           transition={{ duration: 0.6, delay: 0.05 }}
         >
-          If your website is one of these,<br />that’s exactly who this is for.
+          If your website is one of these, <br />that’s exactly who this is for.
         </motion.h2>
 
         <div className="pain__grid">
@@ -65,7 +61,6 @@ export default function PainPoints() {
               transition={{ duration: 0.55, delay: i * 0.08 }}
               whileHover={{ y: -6 }}
             >
-              <span className="pain__dot" style={{ background: item.color }} />
               <h3>{item.label}</h3>
               <p>{item.detail}</p>
             </motion.div>

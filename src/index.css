@@ -1,31 +1,46 @@
 :root {
-  --paper: #FAF9F6;
-  --paper-dim: #F2F0EA;
-  --ink: #17141A;
-  --ink-soft: #4A4650;
-  --line: #E7E3DA;
+  /* brushed aluminum */
+  --alu-hi: #FAFBFC;
+  --alu: #E7E9EC;
+  --alu-lo: #D6DADF;
+  --edge: #BFC5CC;
 
-  --coral: #FF6B4A;
-  --coral-deep: #E44F2E;
-  --sky: #3E7CB1;
-  --saguaro: #4C7A5D;
-  --gold: #F2B138;
-  --violet: #7B5EA7;
+  /* graphite type */
+  --graphite: #16191E;
+  --graphite-soft: #4A515B;
 
-  --display: 'Fraunces', Georgia, serif;
-  --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* the one signal color: a power LED */
+  --signal: #E04A12;
+
+  --panel-bg: linear-gradient(180deg, #FBFCFD 0%, #E8EBEE 100%);
+  --panel-shadow:
+    inset 0 1px 0 #FFFFFF,
+    inset 0 -1px 0 rgba(22, 25, 30, 0.05),
+    0 1px 1px rgba(22, 25, 30, 0.06),
+    0 18px 36px -22px rgba(22, 25, 30, 0.4);
+  --brushed: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 1px, rgba(22, 25, 30, 0.018) 1px 3px);
+  /* polished dark steel, used for metallic type */
+  --steel-grad: linear-gradient(180deg, #3A4049 0%, #121418 48%, #5D646E 72%, #1E2126 100%);
+
+  --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --container: 1180px;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: #E2E5E9; }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background:
+    radial-gradient(1300px 520px at 50% -8%, rgba(255, 255, 255, 0.95), transparent 70%),
+    var(--brushed),
+    linear-gradient(180deg, #ECEEF1 0%, #E2E5E9 100%);
+  min-height: 100vh;
+  color: var(--graphite);
   font-family: var(--body);
+  font-stretch: 100%;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -43,31 +58,32 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .eyebrow {
-  font-family: var(--body);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-stretch: 125%;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--coral-deep);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  color: var(--graphite-soft);
 }
 
-.italic {
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 500;
+/* polished steel text: the gradient repeats on every wrapped line */
+.metal {
+  background: var(--steel-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 ::selection {
-  background: var(--coral);
+  background: var(--graphite);
   color: white;
 }
 
 /* focus visibility */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--sky);
+  outline: 2px solid var(--signal);
   outline-offset: 3px;
   border-radius: 4px;
 }

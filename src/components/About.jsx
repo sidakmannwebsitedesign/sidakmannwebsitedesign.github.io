@@ -25,7 +25,7 @@ export default function About() {
         >
           <span className="eyebrow">Who's building it</span>
           <h2 className="section-title">
-            I'm Sidak Mann, based right here in <span className="italic">North Scottsdale.</span>
+            I'm Sidak Mann, based right here in <span className="metal">North Scottsdale.</span>
           </h2>
           <p>
             I design, build, and deploy every site myself. No subcontractors, no
@@ -34,9 +34,9 @@ export default function About() {
           </p>
           <p>
             I started this because too many good local businesses were being represented
-            online by something that didn't do them justice. A $300 flat fee means this
-            is actually accessible, and handling the domain and hosting myself means you
-            get to run your business instead of a website.
+            online by something that didn't do them justice. One flat $799 fee covers the
+            whole build, and handling the domain and hosting myself means you get to run
+            your business instead of a website.
           </p>
         </motion.div>
       </div>

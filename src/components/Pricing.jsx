@@ -10,10 +10,17 @@ const INCLUDED = [
   'You own everything. I just run it so you don\u2019t have to.',
 ];
 
+// Moves the plate's highlight to the pointer so the chrome numerals catch the light.
+function trackLight(event) {
+  const card = event.currentTarget;
+  const r = card.getBoundingClientRect();
+  card.style.setProperty('--mx', `${((event.clientX - r.left) / r.width) * 100}%`);
+  card.style.setProperty('--my', `${((event.clientY - r.top) / r.height) * 100}%`);
+}
+
 export default function Pricing() {
   return (
     <section className="pricing" id="pricing">
-      <div className="pricing__blob" />
       <div className="wrap pricing__inner">
         <motion.div
           className="pricing__copy"
@@ -24,7 +31,7 @@ export default function Pricing() {
         >
           <span className="eyebrow">Pricing</span>
           <h2 className="section-title">
-            One build price. <span className="italic">No dashboard,</span> no surprise invoice.
+            One build price. <span className="metal">No dashboard,</span> no surprise invoice.
           </h2>
           <p className="pricing__lead">
             Most agencies quote you a build fee, then a monthly fee, then a "maintenance"
@@ -35,17 +42,18 @@ export default function Pricing() {
         </motion.div>
         <motion.div
           className="pricing__card"
-          initial={{ opacity: 0, y: 32, rotate: 2 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ rotate: 0, y: -6 }}
+          whileHover={{ y: -6 }}
+          onPointerMove={trackLight}
         >
           <div className="pricing__figure">
             <span className="pricing__currency">$</span>
-            <span className="pricing__amount">300</span>
+            <span className="pricing__amount">799</span>
           </div>
-          <p className="pricing__split">$150 to start &nbsp;•&nbsp; $150 at launch</p>
+          <p className="pricing__split">$400 to start &nbsp;•&nbsp; $399 at launch</p>
           <ul className="pricing__list">
             {INCLUDED.map((item) => (
               <li key={item}>
@@ -57,7 +65,7 @@ export default function Pricing() {
           <p className="pricing__note">
             
           </p>
-          <Link to="/contact" className="btn btn--primary btn--full">Start with $150</Link>
+          <Link to="/contact" className="btn btn--primary btn--full">Start with $400</Link>
         </motion.div>
       </div>
     </section>
