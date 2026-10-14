@@ -148,14 +148,14 @@
 .proof__v { font-size: 12px; font-weight: 500; color: var(--graphite-soft); margin-top: 3px; }
 
 .hero__visual { position: relative; }
-.hero__compare { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
-.hero__caption { font-size: 13px; color: var(--graphite-soft); }
+.hero__compare { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+.hero__caption { font-size: 15px; font-weight: 600; color: var(--graphite-soft); }
 
 /* before/after switch: a recessed track with a raised key */
 .toggle {
   display: inline-flex;
-  padding: 3px;
-  border-radius: 10px;
+  padding: 4px;
+  border-radius: 12px;
   background: #DCE0E4;
   border: 1px solid var(--edge);
   box-shadow: inset 0 1px 2px rgba(22, 25, 30, 0.18);
@@ -163,17 +163,17 @@
 .toggle button {
   border: none;
   background: transparent;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   color: var(--graphite-soft);
-  padding: 7px 14px;
-  border-radius: 7px;
+  padding: 12px 30px;
+  border-radius: 9px;
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .toggle button[aria-pressed="true"] {
-  background: var(--panel-bg);
-  color: var(--graphite);
-  box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(22, 25, 30, 0.25);
+  background: linear-gradient(180deg, #424852 0%, #1C1F24 55%, #121418 100%);
+  color: #F5F6F8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 2px 6px rgba(22, 25, 30, 0.35);
 }
 
 /* machined aluminum display frame */
